@@ -1,0 +1,9 @@
+<h1>Liste des projets réalisés</h1>
+
+<ul>
+  {% for projetrealisee in projetrealisees %}
+    <li><a href="{% url 'detail_projetrealisee' projetrealisee.id %}">{{ projetrealisee.nom }}</a></li>
+  {% empty %}
+    <li>Aucun projet réalisé n'est disponible.</li>
+  {% endfor %}
+</ul>

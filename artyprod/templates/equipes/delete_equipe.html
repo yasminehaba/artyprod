@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} Supprimer une equipe {% endblock %}
+
+{% block content %}
+<style>
+  .left-align {
+    margin-left: 30%;
+  }
+</style>
+
+<div class="left-align">
+  <br><br><br><br>
+  <div class="container mt-3">
+    <h2>Supprimer une equipe</h2>
+    <p>Êtes-vous sûr de vouloir supprimer ce personnel ?</p>
+    <p>{{ equipe.nom }} </p>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Supprimer</button>
+      <a href="{% url 'list_equipes' %}" class="btn btn-secondary">Annuler</a>
+    </form>
+  </div><br><br><br><br><br><br><br><br>
+</div>
+{% endblock %}

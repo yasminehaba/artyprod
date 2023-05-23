@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .left-align {
+      margin-left: 30%;
+    }
+  </style>
+  
+  <div class="left-align">
+    <br><br><br><br>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Soumettre</button>
+</form></div>
+<br><br><br><br><br><br><br><br>
+{% endblock %}

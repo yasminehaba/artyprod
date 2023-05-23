@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div class="contact-form">
+        <h3 class="title">Se connecter</h3>
+        <div class="row">
+<h2> </h2>
+
+<div>
+
+  <form method="post" action="{% url 'login' %}">
+    
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+    <p class="alert alert-danger">{{ error }}</p>
+    {% endfor %}
+    {% endif %}
+    <table>
+      {% for field in form %}
+      <tr>
+        <td class="contact-input">{{ field.label_tag }}</td>
+        <td class="contact-input">{{ field }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <button class="btn " type="submit">se connecter</button>
+    <div>
+      <small>
+        Pas encore inscrit?
+        <a href="{% url 'register' %}">
+          S'inscrire
+        </a>
+        <br>
+        Mot de passe oublié ?
+        <a href="{% url 'password_reset' %}">
+          Renouveler mon mot de passe
+        </a>
+      </small>
+    </div>
+  </form>
+ </div>
+</div>
+             
+         </div>
+         </div>
+         </section>
+                                
+
+{% endblock %}

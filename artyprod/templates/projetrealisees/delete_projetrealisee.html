@@ -1,0 +1,10 @@
+<!-- delete_projetrealisee.html -->
+
+<h1>Supprimer le projet réalisé</h1>
+
+<p>Êtes-vous sûr de vouloir supprimer le projet réalisé "{{ projetrealisee.nom }}" ? Cette action est irréversible.</p>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" value="Confirmer la suppression">
+</form>

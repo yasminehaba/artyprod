@@ -1,0 +1,11 @@
+<!-- detail_projetrealisee.html -->
+
+<h1>Détails du projet réalisé</h1>
+
+<h2>{{ projetrealisee.nom }}</h2>
+<p>Service : {{ projetrealisee.services }}</p>
+<p>Type : {{ projetrealisee.get_type_display }}</p>
+<img src="{{ projetrealisee.photoPrj.url }}" alt="Photo du projet">
+
+<a href="{% url 'edit_projetrealisee' projetrealisee.id %}">Modifier</a>
+<a href="{% url 'delete_projetrealisee' projetrealisee.id %}">Supprimer</a>

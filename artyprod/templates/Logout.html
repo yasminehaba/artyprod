@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .left-align {
+      margin-left: 30%;
+    }
+  </style>
+  
+  <div class="left-align">
+<br><br><br><br><br>
+<h2>Vous êtes déconnecté. </h2>
+<a href="{% url 'login' %}">Se reconnecter</a>
+  </div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

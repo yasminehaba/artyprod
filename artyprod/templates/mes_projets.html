@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+{% for projet in projets %}
+<section class="services section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <h3 class="title" >Mes Projets</h3>
+        <p class="text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias,
+          vero?
+        </p>
+      </div>
+
+      <div class="cards">
+        {% for projet in projets %}
+        
+        <div class="card-wrap" >
+            
+         
+          <div class="card" data-card="UI/UX">
+            <img
+            src="{% static '/img/shapes/points3.png'%}"
+            class="points points1 points-sq"
+            alt=""
+          />
+            <div class="card-content z-index">
+               
+                
+              <h3 class="title-sm">{{ projet.nom }}</h3>
+              <p>{{ projet.description }}</p>
+              
+                <!-- <p>Type : {{ projetrealisee.get_type_display }}</p> -->
+                
+              <p class="text">
+                Client: {{ projet.client.username }}
+              </p>
+              <p>Service: {{projet.services}}</p>
+              {% if not projet.realise %}
+              <p>Statut: en cours</p>
+              {% else %}
+              <p>Statut: Achevé</p>
+              
+              {% endif %}
+
+              
+            </div>
+            
+          </div>
+        </div>
+        
+        {% endfor %}
+    </div>
+</div>
+</section>
+    
+{% endfor %}
+
+{% endblock %}
+
+

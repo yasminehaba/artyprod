@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <div class="contact-form">
+            <h3 class="title">S'inscrire</h3>
+            <div class="row">
+                <h2></h2> 
+                    <form method="post">
+                    {% csrf_token %}
+                    <table>
+                        {% for field in form %}
+                            <tr>
+                                <td class="contact-input">{{ field.label_tag }}</td>
+                                <td class="contact-input">{{ field }}</td>
+                            </tr>
+                                {% for error in field.errors %}
+                            <tr><td></td><td class="alert alert-danger">{{ error }}</td></tr>
+                                {% endfor %}
+                                {% endfor %}
+                    </table>
+                        <button class="btn " type="submit">s'inscrire</button> 
+                        <div>
+                            <small>
+                            Déjà inscrit?
+                            <a href="{% url 'login' %}">Se connecter</a>
+                            </small>
+                            </div>
+                     </form>
+                    </div>
+                </div>
+                                
+                            </div>
+                            </div>
+                            </section>
+            
+                                {% endblock %}

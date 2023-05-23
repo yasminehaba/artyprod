@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block content %}
+
+
+
+
+<section class="services section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <h3 class="title" >Nos Equipes</h3>
+        <p class="text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias,
+          vero?
+        </p>
+      </div>
+
+      <div class="cards">
+        {% for equipe in equipes %}
+        
+        <div class="card-wrap" >
+            
+         
+          <div class="card" data-card="UI/UX">
+            <img
+            src="{% static '/img/shapes/points3.png'%}"
+            class="points points1 points-sq"
+            alt=""
+          />
+            <div class="card-content z-index">
+               
+                
+                <a class="title-sm" href="{% url 'detail_equipe' equipe.id %}">{{ equipe.nom }}</a><br>
+                ({{ equipe.membres.count }} membres)
+                <div style="width: 350px;">
+                <a href="{% url 'edit_equipe' equipe.id %}" class="btn small ">Modifier</a>
+                <a href="{% url 'delete_equipe' equipe.id %}" class="btn small" >Supprimer</a>
+                <a href="{% url 'detail_equipe' equipe.id %}" class="btn small ">Voir détails</a>
+                </div>
+            </div>
+            
+          </div>
+        </div>
+        {% empty %}
+        <li>Aucune équipe n'a été trouvée.</li>
+        {% endfor %}
+    </div>
+</div>
+</section>
+{% endblock %}
+
+
+
+
+
+
+

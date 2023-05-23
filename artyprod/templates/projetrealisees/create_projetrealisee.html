@@ -1,0 +1,28 @@
+<!-- create_projetrealisee.html -->
+
+<h1>Créer un projet réalisé</h1>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label for="nom">Nom :</label>
+  <input type="text" name="nom" id="nom" required><br>
+  
+  <label for="services">Service :</label>
+  <select name="services" id="services">
+    {% for service in services %}
+      <option value="{{ service.id }}">{{ service.name }}</option>
+    {% endfor %}
+  </select><br>
+  
+  <label for="type">Type :</label>
+  <select name="type" id="type">
+    {% for choice in projetrealisee.TYPE_CHOICES %}
+      <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+    {% endfor %}
+  </select><br>
+  
+  <label for="photo">Photo du projet :</label>
+  <input type="file" name="photo" id="photo"><br>
+  
+  <input type="submit" value="Créer">
+</form>
